@@ -1,7 +1,7 @@
 var express = require("express");
 var path = require("path");
 var fs = require("fs");
-var tables = require("./db.json")
+var db = require("./db.json")
 
 var app = express();
 var PORT = process.env.PORT ? process.env.PORT : 3000;
@@ -24,22 +24,17 @@ res.sendFile(path.join(__dirname, "./notes.html"));
 
 app.post("/api/notes", function(req, res){
   let newNote = req.body;
-  (db.json.length < 5){  /////////////////////////////
-    tables.push(newReserve)
-  }
+  db.push(newNote);
+  
  
-  return res.json(tables)
+  return res.json(db)
 });
 
-app.get("/api/tables", function(req, res) {
-return res.json(tables);
+app.get("/api/db", function(req, res) {
+return res.json(db);
 });
 
-app.get("/api/waitlist", function(req, res) {
-return res.json(waitlist);
-});
-
-app.post("/api/tables", function(req, res) {
+app.post("/api/db", function(req, res) {
 
 })
 
