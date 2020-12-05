@@ -1,3 +1,8 @@
+var express = require("express");
+var path = require("path");
+var fs = require("fs");
+var tables = require("./db.json")
+
 var app = express();
 var PORT = process.env.PORT ? process.env.PORT : 3000;
 
@@ -17,13 +22,12 @@ app.get("/notes", function(req, res) {
 res.sendFile(path.join(__dirname, "./notes.html"));
 });
 
-app.post("/api/tables", function(req, res){
-  let newReserve = req.body;
-  if(tables.length < 5){
+app.post("/api/notes", function(req, res){
+  let newNote = req.body;
+  (db.json.length < 5){  /////////////////////////////
     tables.push(newReserve)
   }
-  else(waitlist.push(newReserve));
-
+ 
   return res.json(tables)
 });
 
