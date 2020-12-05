@@ -149,3 +149,7 @@ $noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
+
+//////////do the html routes last and in the ordeer of the api
+//right above that put the api routes 
+//whole point is that we're buildng a server
