@@ -23,8 +23,7 @@ res.sendFile(path.join(__dirname, "./notes.html"));
 });
 
 app.post("/api/notes", function(req, res){
-  let newNote = req.body;
-  db.push(newNote);
+  db.push(req.body);
   return res.json(db)
 });
 
