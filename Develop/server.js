@@ -30,6 +30,7 @@ app.post("/api/notes", function(req, res){
 app.post("/api/clear", function(req, res){
   //deletes data from notes page
   db.splice(0);
+  res.json("Successfully deleted!");
 })
 
 app.get("/api/notes", function(req, res) {
