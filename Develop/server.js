@@ -25,16 +25,19 @@ res.sendFile(path.join(__dirname, "./notes.html"));
 app.post("/api/notes", function(req, res){
   let newNote = req.body;
   db.push(newNote);
-  
- 
   return res.json(db)
 });
 
-app.get("/api/db", function(req, res) {
+app.post("/api/clear", function(req, res){
+  //deletes data from notes page
+  db.splice(0);
+})
+
+app.get("/api/notes", function(req, res) {
 return res.json(db);
 });
 
-app.post("/api/db", function(req, res) {
+app.post("/api/notes", function(req, res) {
 
 })
 
